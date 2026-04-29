@@ -27,68 +27,80 @@ type SiteConfig = {
 };
 
 export const siteConfig: SiteConfig = {
-  // TODO: replace — your full name
   name: "Ahmet Hamdi Özen",
-  // TODO: replace — your initials or short handle shown in the nav logo
   initials: "AHO",
-  // TODO: replace — your production URL
   url: "https://ahmethamdiozen.com",
 
   title: {
-    // TODO: replace — one-line professional title
-    en: "Software Engineer",
-    // TODO: replace
-    tr: "Bilgisayar Mühendisi",
+    en: "Backend & AI Software Engineer",
+    tr: "Backend & Yapay Zeka Yazılım Mühendisi",
   },
 
   bio: {
-    // TODO: replace — one sentence that describes your work and perspective
-    en: "Building thoughtful software for the web.",
-    // TODO: replace
-    tr: "Web için düşünceli yazılımlar geliştiriyorum.",
+    en: "Building backend systems and AI integrations that work in production.",
+    tr: "Üretimde çalışan backend sistemleri ve yapay zeka entegrasyonları geliştiriyorum.",
   },
 
   about: {
-    // TODO: replace — 2–3 paragraphs for the /about page; use \n\n between paragraphs
-    en: "TODO: replace — write a few paragraphs about yourself, your background, and what you care about.\n\nKeep it honest and direct. No fluff.",
-    // TODO: replace
-    tr: "TODO: replace — kendinizden, geçmişinizden ve önem verdiğiniz şeylerden bahseden birkaç paragraf yazın.\n\nDürüst ve doğrudan olun.",
+    en: "I'm a software engineer with hands-on experience building backend systems, AI integrations, and distributed architectures. I've worked on real-time streaming pipelines, LLM-powered applications, and event-driven microservices — focused on reliability and maintainability throughout.\n\nI care about clean code and thoughtful system design. Whether it's a distributed e-commerce platform with Kafka and Redis, a WhatsApp ordering bot powered by Claude, or a RAG pipeline for document search — I try to build things that are correct, observable, and easy to reason about.",
+    tr: "Backend sistemleri, yapay zeka entegrasyonları ve dağıtık mimariler konusunda pratik deneyime sahip bir yazılım mühendisiyim. Gerçek zamanlı akış yönetimi, LLM tabanlı uygulamalar ve olay güdümlü mikroservisler üzerinde çalıştım; her adımda güvenilirlik ve sürdürülebilirliğe odaklandım.\n\nTemiz kod ve düşünceli sistem tasarımına önem veriyorum. Kafka ve Redis ile dağıtık bir e-ticaret platformu, Claude ile çalışan bir WhatsApp sipariş botu ya da belge arama için bir RAG pipeline olsun — doğru, gözlemlenebilir ve anlaşılması kolay sistemler kurmaya çalışırım.",
   },
 
   socials: {
-    // TODO: replace — full URLs
     github: "https://github.com/ahmethamdiozen",
     linkedin: "https://linkedin.com/in/ahmethamdiozen",
-    // TODO: replace — leave empty string "" to hide
     twitter: "",
     email: "hamdiahmetozen@gmail.com",
   },
 
   skills: [
-    // TODO: replace — add/remove categories and items as needed
     {
       category: { en: "Languages", tr: "Diller" },
-      items: ["TypeScript", "Python", "SQL"],
+      items: ["Python", "TypeScript", "JavaScript", "SQL"],
     },
     {
-      category: { en: "Frameworks", tr: "Çerçeveler" },
-      items: ["Next.js", "React", "Node.js"],
+      category: { en: "Backend & APIs", tr: "Backend & API'ler" },
+      items: ["Node.js", "Express", "FastAPI", "REST", "WebSocket"],
     },
     {
-      category: { en: "Tools", tr: "Araçlar" },
-      items: ["PostgreSQL", "Docker", "Git"],
+      category: { en: "Databases", tr: "Veritabanları" },
+      items: ["PostgreSQL", "Redis", "ChromaDB", "Prisma"],
+    },
+    {
+      category: { en: "Messaging & Events", tr: "Mesajlaşma & Olaylar" },
+      items: ["Apache Kafka", "RabbitMQ"],
+    },
+    {
+      category: { en: "AI / LLM", tr: "Yapay Zeka / LLM" },
+      items: ["Claude API", "OpenAI API", "RAG", "Vector Embeddings"],
+    },
+    {
+      category: { en: "Frontend", tr: "Frontend" },
+      items: ["React", "Next.js", "Tailwind CSS"],
+    },
+    {
+      category: { en: "Infrastructure", tr: "Altyapı" },
+      items: ["Docker", "Linux", "Git", "Prometheus", "Grafana", "Coolify"],
     },
   ],
 
   experience: [
-    // TODO: replace — add your work experience in reverse chronological order
     {
-      role: { en: "Software Engineer", tr: "Yazılım Mühendisi" },
-      company: "Company Name", // TODO: replace
-      period: "2023 — present", // TODO: replace
+      role: { en: "Junior Backend / AI Engineer", tr: "Junior Backend / Yapay Zeka Mühendisi" },
+      company: "Crowtec Software",
+      period: "09/2024 — 02/2025",
       description: {
-        en: "TODO: replace — describe your responsibilities and impact.",
-        tr: "TODO: replace — sorumlulukları ve etkiyi açıklayın.",
+        en: "Developed and maintained backend services for real-time video streaming and communication on Linux. Integrated Python services with optimized ML inference pipelines (ONNX), exposed internal functionality via REST APIs, and took full ownership of reliability, performance, and production stability.",
+        tr: "Linux üzerinde gerçek zamanlı video akışı ve iletişim için backend servisleri geliştirdim ve sürdürdüm. Python servislerini optimize edilmiş ML çıkarım yapılandırmalarıyla (ONNX) entegre ettim, REST API'lar aracılığıyla iç işlevselliği dışa açtım; güvenilirlik, performans ve üretim stabilitesinin tüm sorumluluğunu üstlendim.",
+      },
+    },
+    {
+      role: { en: "Software Engineer Intern", tr: "Yazılım Mühendisi Stajyeri" },
+      company: "Yalin Software",
+      period: "06/2024 — 08/2024",
+      description: {
+        en: "Worked on the backend of a computer vision application, writing Python services and REST endpoints consumed by frontend clients. Collaborated on a production codebase using PyTorch and OpenCV, contributing to data processing pipelines and API layer improvements.",
+        tr: "Bir bilgisayarla görme uygulamasının backend tarafında çalıştım; frontend istemcilerin tükettiği Python servisleri ve REST endpoint'leri yazdım. PyTorch ve OpenCV kullanan üretim ortamındaki bir kod tabanında, veri işleme pipeline'larına ve API katmanı geliştirmelerine katkıda bulundum.",
       },
     },
   ],
