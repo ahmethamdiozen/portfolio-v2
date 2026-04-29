@@ -1,0 +1,26 @@
+---
+title: "Dağıtık E-Ticaret Platformu"
+description: "Event-driven mimari, distributed locking ve tam gözlemlenebilirlik içeren microservices tabanlı e-ticaret sistemi."
+date: "2025-03-01"
+tags: ["TypeScript", "Node.js", "Kafka", "RabbitMQ", "Redis", "PostgreSQL", "Docker", "Prometheus"]
+featured: true
+repo: "https://github.com/ahmethamdiozen/ecommerce-distributed"
+demo: ""
+cover: ""
+---
+
+## Genel Bakış
+
+Auth, Order, Inventory, Notification ve React frontend olmak üzere beş bağımsız servisten oluşan dağıtık e-ticaret platformu. Servisler Kafka ve RabbitMQ üzerinden asenkron iletişim kuruyor. Tüm stack baştan Prometheus ve Grafana entegrasyonuyla Docker Compose üzerinde çalışıyor.
+
+## Problem
+
+Monolitik sipariş sistemleri yüksek eşzamanlılıkta çöküyor. Aynı ürüne gelen eş zamanlı istekler race condition'a yol açıyor — stok negatife düşüyor, mükerrer siparişler oluşuyor ve bir servisteki hata diğerlerine yayılıyor. Monoliti ölçeklendirmek, ihtiyaç olmayan bileşenleri de beraberinde ölçeklendiriyor.
+
+## Yaklaşım
+
+Her servis kendi alanını yönetiyor ve asenkron haberleşiyor. TTL'li Redis distributed lock'ları aynı ürüne eş zamanlı yazmayı engelliyor; deadlock oluşmaması için kilitler `productId`'ye göre sıralı alınıyor. Sipariş sonuçları idempotency anahtarlarıyla 24 saat önbelleğe alınarak mükerrer istekler engelleniyor. Başarısız bildirimler üç denemeden sonra exponential backoff ile dead-letter queue'ya yönlendiriliyor. Redis destekli sliding-window rate limiter auth ve order endpoint'lerini koruyor.
+
+## Sonuç
+
+Tüm beş servis üzerinde uçtan uca akış çalışıyor. Prometheus her servisten metrik topluyor; Grafana dashboard'ları yük ve hata oranlarını görünür kılıyor. GitHub Actions CI pipeline, `main`'e her push'ta TypeScript tip kontrolü, ESLint, frontend build ve beş Dockerfile'ı doğruluyor.

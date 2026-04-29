@@ -1,0 +1,26 @@
+---
+title: "SaaS Backend Çerçevesi"
+description: "Arka plan işleri, JWT auth, distributed locking ve gözlemlenebilirlik içeren production'a hazır FastAPI backend şablonu."
+date: "2025-02-01"
+tags: ["FastAPI", "Python", "PostgreSQL", "Redis", "RQ", "Alembic", "Pydantic"]
+featured: false
+repo: "https://github.com/ahmethamdiozen/saas-project-backend"
+demo: ""
+cover: ""
+---
+
+## Genel Bakış
+
+FastAPI ile inşa edilmiş, production'a hazır SaaS backend şablonu. Çoğu SaaS ürününün ortak ihtiyaçlarını — kimlik doğrulama, arka plan işleri, veritabanı migrasyonları ve gözlemlenebilirlik — başından domain-driven modüler yapıyla karşılıyor.
+
+## Problem
+
+Her SaaS projesinde aynı sorunlar yeniden çözülüyor: auth, arka plan işleri, schema migrasyonları ve yapısal loglama. Bu altyapıyı sıfırdan yeniden inşa etmek zaman kaybettiriyor ve tutarsızlık yaratıyor.
+
+## Yaklaşım
+
+FastAPI, otomatik oluşturulan Swagger ve ReDoc dokümantasyonuyla REST API'yi sunuyor. Arka plan işleri Redis Queue (RQ) üzerinde ilerleme takibi, iptal tokenları ve otomatik yeniden deneme ile çalışıyor. Worker düzeyindeki distributed locking ile aynı işin tekrar çalışması engelleniyor. JWT kimlik doğrulaması bcrypt parola hash'i ile access + refresh token desenini uyguluyor. Alembic schema migrasyonlarını versiyonlu geçmişle yönetiyor. Yapısal loglama ve global exception handler ek araç gerektirmeden gözlemlenebilirliği sağlıyor.
+
+## Sonuç
+
+Domain-driven modüllere (Auth, Users, Jobs, Subscriptions) ayrılmış yeniden kullanılabilir başlangıç noktası. Unit ve integration testleriyle kapsanıyor.

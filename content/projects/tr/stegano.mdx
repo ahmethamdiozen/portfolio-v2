@@ -1,0 +1,26 @@
+---
+title: "LSB Steganografi Aracı"
+description: "LSB steganografi ve AES şifreleme ile metin ve dosyaları PNG görsellerine gömen web uygulaması."
+date: "2025-06-01"
+tags: ["Python", "Flask", "Pillow", "NumPy", "AES", "Steganografi"]
+featured: false
+repo: "https://github.com/ahmethamdiozen/stegano"
+demo: "https://stegano-k300.onrender.com"
+cover: ""
+---
+
+## Genel Bakış
+
+Steganografi ve şifrelemeyi birleştirerek veriyi PNG görsellerinin içine gömen web uygulaması. Metin ve dosyalar (PDF, DOCX, TXT) bir PNG içine gömülebiliyor; çıktı görsel olarak orijinalden ayırt edilemiyor.
+
+## Problem
+
+Şifreleme verinin içeriğini korur ama varlığını gizlemez. Gizli bilginin var olduğunun da saklanması gereken senaryolarda yalnızca şifreleme yetersiz kalıyor.
+
+## Yaklaşım
+
+LSB (En Az Anlamlı Bit) algoritması, yükü PNG'nin her piksel kanalının en az anlamlı bitlerine yazıyor. Bu düzeydeki değişiklikler insan gözüyle algılanamıyor. Metin yükleri gömülmeden önce AES ile şifrelenerek ikinci bir koruma katmanı ekleniyor. İkili dosyalar doğrudan gömülüyor. Çıktı görseliyle birlikte bir `.key` dosyası üretiliyor ve şifre çözme için gerekli. Flask tabanlı web arayüzü yükleme, kodlama ve çözme işlemlerini yönetiyor. Kayıplı formatlar gömülü bitleri bozacağından yalnızca PNG destekleniyor.
+
+## Sonuç
+
+Render üzerinde canlıya alındı. Bursa Teknik Üniversitesi bitirme projesi, Haziran 2025.

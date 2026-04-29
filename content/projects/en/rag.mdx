@@ -1,0 +1,26 @@
+---
+title: "RAG Document Q&A"
+description: "Upload PDFs, ask questions in natural language, get answers grounded in the source with page-level citations."
+date: "2025-04-01"
+tags: ["FastAPI", "Python", "ChromaDB", "OpenAI", "Next.js", "TypeScript", "Docker"]
+featured: true
+repo: "https://github.com/ahmethamdiozen/rag-project"
+demo: "https://rag.ahmethamdiozen.com"
+cover: ""
+---
+
+## Overview
+
+A document question-answering system split into a FastAPI backend and a Next.js frontend. PDFs are uploaded, chunked, and embedded into a vector store. Questions return answers grounded in the source material with page-level citations.
+
+## Problem
+
+Keyword search breaks down on large or dense documents — the relevant passage may be phrased completely differently from the query. Generated answers are only useful if they can be traced back to a specific source; otherwise, hallucinations are indistinguishable from facts.
+
+## Approach
+
+Uploaded PDFs are split into 600-token chunks with 100-token overlap to preserve context across boundaries. Each chunk is embedded with OpenAI's `text-embedding-3-small` and stored in ChromaDB. On query, semantically similar chunks are retrieved and passed to an LLM. Before returning sources, the answer is grounded-checked against the retrieved context — if the answer isn't supported by the chunks, citations are omitted. The Next.js frontend streams the response token-by-token via Server-Sent Events. Multi-document filtering lets users scope questions to specific files.
+
+## Outcome
+
+Live at [rag.ahmethamdiozen.com](https://rag.ahmethamdiozen.com). Supports drag-and-drop upload, multi-document filtering, streaming answers, and page-level source citations. Backend and frontend are independently containerized and deployed on a Hetzner VPS.

@@ -1,0 +1,30 @@
+{
+  "nav": {
+    "projects": "Projeler",
+    "about": "Hakkımda"
+  },
+  "home": {
+    "cta_projects": "Projeleri gör",
+    "cta_contact": "İletişime geç",
+    "selected_projects": "Seçilen çalışmalar",
+    "view_all": "Tüm projeler",
+    "about_heading": "Hakkımda"
+  },
+  "projects": {
+    "heading": "Projeler",
+    "filter_all": "Tümü",
+    "view_repo": "Kaynak",
+    "view_demo": "Demo",
+    "back": "Projelere dön"
+  },
+  "about": {
+    "heading": "Hakkımda",
+    "skills": "Beceriler",
+    "experience": "Deneyim"
+  },
+  "common": {
+    "not_found": "Sayfa bulunamadı.",
+    "not_found_desc": "Aradığınız sayfa mevcut değil.",
+    "go_home": "Ana sayfaya git"
+  }
+}

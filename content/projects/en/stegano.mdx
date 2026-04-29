@@ -1,0 +1,26 @@
+---
+title: "LSB Steganography Tool"
+description: "Web app for hiding text and files inside PNG images using LSB steganography and AES encryption."
+date: "2025-06-01"
+tags: ["Python", "Flask", "Pillow", "NumPy", "AES", "Steganography"]
+featured: false
+repo: "https://github.com/ahmethamdiozen/stegano"
+demo: "https://stegano-k300.onrender.com"
+cover: ""
+---
+
+## Overview
+
+A web application that hides data inside PNG images by combining steganography and encryption. Text and files (PDF, DOCX, TXT) can be embedded into a PNG; the result is visually indistinguishable from the original.
+
+## Problem
+
+Encryption protects the content of data but not its existence. In scenarios where the presence of hidden information must itself be concealed, encryption alone is insufficient.
+
+## Approach
+
+The LSB (Least Significant Bit) algorithm writes the payload into the least-significant bits of each pixel channel in the PNG. Changes at this level are imperceptible to the human eye. Text payloads are encrypted with AES before embedding, adding a second layer of protection. Binary files are embedded directly. A `.key` file is generated alongside the output image and is required for decryption. A Flask web interface handles upload, encoding, and decoding. Only PNG is supported, as lossy formats would corrupt the embedded bits.
+
+## Outcome
+
+Deployed on Render. Graduation project at Bursa Technical University, June 2025.

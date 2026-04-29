@@ -1,0 +1,26 @@
+---
+title: "Distributed E-Commerce Platform"
+description: "Microservices-based e-commerce system with event-driven architecture, distributed locking, and full observability."
+date: "2025-03-01"
+tags: ["TypeScript", "Node.js", "Kafka", "RabbitMQ", "Redis", "PostgreSQL", "Docker", "Prometheus"]
+featured: true
+repo: "https://github.com/ahmethamdiozen/ecommerce-distributed"
+demo: ""
+cover: ""
+---
+
+## Overview
+
+A distributed e-commerce platform built across five independent services: Auth, Order, Inventory, Notification, and a React frontend. Services communicate through Kafka and RabbitMQ. The full stack runs via Docker Compose with Prometheus and Grafana wired in from the start.
+
+## Problem
+
+Monolithic ordering systems struggle under concurrent load. Multiple simultaneous requests for the same product cause race conditions — inventory goes negative, duplicate orders get created, and a failure in one area cascades into others. Scaling a monolith means scaling everything, even parts that don't need it.
+
+## Approach
+
+Each service owns its domain and communicates asynchronously. Redis distributed locks with TTL prevent concurrent writes on the same product; items are sorted by `productId` before lock acquisition to avoid deadlocks. Order results are cached with idempotency keys for 24 hours to deduplicate retries. Failed notifications route to a dead-letter queue after three retries with exponential backoff. A sliding-window rate limiter backed by Redis protects auth and order endpoints.
+
+## Outcome
+
+Full end-to-end flow works across all five services. Prometheus scrapes metrics from each service; Grafana dashboards make load and error rates visible. A GitHub Actions CI pipeline validates TypeScript types, runs ESLint, builds the frontend, and validates all five Dockerfiles on every push to `main`.

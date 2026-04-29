@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --accent: #5a7a6e;
+    --accent-hover: #486660;
+  }
+
+  .dark {
+    --accent: #7ea898;
+    --accent-hover: #96bab3;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  ::selection {
+    background-color: rgb(90 122 110 / 0.15);
+  }
+
+  .dark ::selection {
+    background-color: rgb(126 168 152 / 0.2);
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-white dark:ring-offset-[#0a0a0a];
+  }
+}
+
+/* rehype-pretty-code — dual-theme */
+[data-rehype-pretty-code-figure] [data-theme="dark"] {
+  display: none;
+}
+[data-rehype-pretty-code-figure] [data-theme="light"] {
+  display: block;
+}
+.dark [data-rehype-pretty-code-figure] [data-theme="dark"] {
+  display: block;
+}
+.dark [data-rehype-pretty-code-figure] [data-theme="light"] {
+  display: none;
+}
+
+[data-rehype-pretty-code-figure] pre {
+  @apply overflow-x-auto rounded-none border border-zinc-200 px-0 py-4 text-sm dark:border-zinc-800;
+}
+
+[data-rehype-pretty-code-figure] [data-line] {
+  @apply px-5;
+}
+
+[data-rehype-pretty-code-figure] [data-highlighted-line] {
+  @apply bg-zinc-100 dark:bg-zinc-800/60;
+}

@@ -1,0 +1,26 @@
+---
+title: "RAG Doküman Soru-Cevap"
+description: "PDF yükle, doğal dilde sor, yanıtları sayfa düzeyinde kaynak atıflarıyla al."
+date: "2025-04-01"
+tags: ["FastAPI", "Python", "ChromaDB", "OpenAI", "Next.js", "TypeScript", "Docker"]
+featured: true
+repo: "https://github.com/ahmethamdiozen/rag-project"
+demo: "https://rag.ahmethamdiozen.com"
+cover: ""
+---
+
+## Genel Bakış
+
+FastAPI backend ve Next.js frontend olarak ikiye ayrılmış doküman soru-cevap sistemi. PDF'ler yükleniyor, parçalara bölünüyor ve bir vektör deposuna gömülüyor. Sorulan sorular kaynak materyale dayalı, sayfa düzeyinde atıflı yanıtlar üretiyor.
+
+## Problem
+
+Büyük veya yoğun dokümanlarda anahtar kelime araması yetersiz kalıyor — ilgili pasaj, sorgudan tamamen farklı biçimde ifade edilmiş olabilir. Üretilen yanıtlar yalnızca belirli bir kaynağa geri izlenebiliyorsa değer taşıyor; aksi hâlde halüsinasyonlar gerçeklerden ayırt edilemiyor.
+
+## Yaklaşım
+
+Yüklenen PDF'ler, sınırlar arasında bağlamı korumak için 100 token örtüşmeli 600 token parçalara bölündü. Her parça OpenAI `text-embedding-3-small` ile gömülerek ChromaDB'ye kaydedildi. Sorgu geldiğinde anlamca benzer parçalar alınarak LLM'e iletildi. Kaynaklar döndürülmeden önce yanıt, alınan bağlamla karşılaştırılıyor — parçalar yanıtı desteklemiyorsa atıflar gösterilmiyor. Next.js frontend, Server-Sent Events üzerinden yanıtı token token akıtıyor. Çoklu doküman filtrelemesi soruları belirli dosyalarla sınırlamayı sağlıyor.
+
+## Sonuç
+
+[rag.ahmethamdiozen.com](https://rag.ahmethamdiozen.com) adresinde canlı. Sürükle-bırak yükleme, çoklu doküman filtrelemesi, akışlı yanıtlar ve sayfa düzeyinde kaynak atıfları destekleniyor. Backend ve frontend bağımsız olarak containerize edilip Hetzner VPS üzerinde deploy edildi.

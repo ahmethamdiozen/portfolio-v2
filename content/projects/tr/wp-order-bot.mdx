@@ -1,0 +1,26 @@
+---
+title: "WhatsApp Yapay Zeka Sipariş Botu"
+description: "Doğal dil, Stripe ödemesi, sadakat puanı ve React admin paneli içeren WhatsApp üzerinde yapay zeka destekli restoran sipariş sistemi."
+date: "2025-05-01"
+tags: ["TypeScript", "Node.js", "Express", "Claude API", "WhatsApp Cloud API", "Redis", "PostgreSQL", "Prisma", "Stripe", "React"]
+featured: true
+repo: "https://github.com/ahmethamdiozen/whatsapp-order-bot"
+demo: ""
+cover: ""
+---
+
+## Genel Bakış
+
+WhatsApp Cloud API üzerine inşa edilmiş restoran sipariş sistemi. Müşteriler bir konuşma akışı üzerinden doğal dilde sipariş veriyor; sistem niyeti çözümleyip sepeti yönetiyor, ödemeyi işliyor ve sipariş durumu değiştiğinde müşteriyi bilgilendiriyor. React admin paneli mutfak tarafını yönetiyor.
+
+## Problem
+
+Telefon ve web form ile sipariş yavaş ve hata yapmaya açık. WhatsApp pek çok müşteri için birincil mesajlaşma kanalı, ancak bu kanal üzerinden yapılandırılmış sipariş, ödeme ve gerçek zamanlı durum güncellemelerini işlemenin doğal bir yolu bulunmuyor.
+
+## Yaklaşım
+
+Gelen mesajlar Meta webhook'u üzerinden alınarak bir durum makinesinde yönlendiriliyor: dil seçimi → şube seçimi → menü gezinme → onay → sipariş sonrası. Claude API, serbest metin girişini yapılandırılmış sepet öğelerine dönüştürüyor; markdown kod blokları içindeki JSON ayrıştırmadan önce temizleniyor. Oturum durumu Redis'te 1 saatlik TTL ile tutuluyor. Onaylanan siparişler PostgreSQL'e kaydediliyor. Onayın ardından Stripe Checkout linki gönderiliyor. Sadakat puanları (1 puan/$1, 100 puan=$5 indirim), son kullanma tarihi ve kullanım limiti olan promosyon kodları ve sipariş geçmişinden hızlı yeniden sipariş tüm akışlar sohbet içinde yönetiliyor. Rate limiter mesajları telefon numarası başına dakikada 30 ile sınırlıyor. Winston ve Sentry loglama ve hata takibini karşılıyor. 86 test 8 suite üzerinde temel akışları kapsıyor.
+
+## Sonuç
+
+Çok dil (TR/EN), çok şube seçimi, sepet yönetimi, promosyon kodları, sadakat puanı, Stripe ödemesi ve mutfaktan müşteriye push bildirim içeren tam sipariş akışı. React admin dashboard sipariş yönetimi, menü düzenleme, istatistikler ve grafikleri kapsıyor.

@@ -1,0 +1,26 @@
+---
+title: "Canlı Quiz Platformu"
+description: "Socket.io ve yapay zeka destekli soru üretimiyle gerçek zamanlı sınıf quiz platformu."
+date: "2024-12-01"
+tags: ["Node.js", "Express", "Socket.io", "PostgreSQL", "OpenAI", "JWT"]
+featured: false
+repo: "https://github.com/ahmethamdiozen/kahoot"
+demo: "https://kahoot-production.up.railway.app"
+cover: ""
+---
+
+## Genel Bakış
+
+Sınıf ortamı için gerçek zamanlı quiz platformu. Öğretmenler quiz oluşturup yönetiyor; öğrenciler hesap açmadan isim ve oda koduyla katılıyor. Sorular canlı olarak yayınlanıyor, puanlar yanıtlar geldikçe anlık güncelleniyor.
+
+## Problem
+
+Geleneksel sınıf sınavları anlık geri bildirimden yoksun ve hazırlanması zaman alıyor. Soruları elle yazmak yavaş, sonuçları gerçek zamanlı takip etmek ise neredeyse imkânsız.
+
+## Yaklaşım
+
+Socket.io, sunucu ile tüm katılımcılar arasındaki gerçek zamanlı bağlantıyı yönetiyor — sorular bağlı tüm istemcilere eş zamanlı iletiliyor, cevaplar gönderildiği anda geri akıyor. Öğretmenler JWT ile kimlik doğrulaması yaparak quiz yönetim panelini kullanıyor. OpenAI API bir konu girdisinden saniyeler içinde soru üretiyor. Öğrenci erişimi kasıtlı olarak sürtünmesiz tasarlandı: yalnızca isim ve oda kodu yeterli.
+
+## Sonuç
+
+Railway üzerinde canlıya alındı. Otomatik oda kodu üretimi, canlı puanlama ve sıralama tablosu destekleniyor. Bir üniversite dersi kapsamında geliştirildi.

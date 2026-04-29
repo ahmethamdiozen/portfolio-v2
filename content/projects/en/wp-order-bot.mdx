@@ -1,0 +1,26 @@
+---
+title: "WhatsApp AI Ordering Bot"
+description: "AI-powered restaurant ordering system on WhatsApp — natural language, Stripe payments, loyalty points, and a React admin panel."
+date: "2025-05-01"
+tags: ["TypeScript", "Node.js", "Express", "Claude API", "WhatsApp Cloud API", "Redis", "PostgreSQL", "Prisma", "Stripe", "React"]
+featured: true
+repo: "https://github.com/ahmethamdiozen/whatsapp-order-bot"
+demo: ""
+cover: ""
+---
+
+## Overview
+
+A restaurant ordering system built on WhatsApp Cloud API. Customers order in natural language through a conversation flow; the system parses intent, manages a cart, processes payments, and notifies customers when their order status changes. A React admin panel handles the kitchen side.
+
+## Problem
+
+Phone and web-form ordering is slow and error-prone. WhatsApp is the primary messaging channel for many customers, but there's no native way to handle structured orders, payments, or real-time status updates through it.
+
+## Approach
+
+Incoming messages arrive via a Meta webhook and are routed through a state machine: language selection → branch selection → menu browsing → confirmation → post-order. The Claude API parses free-text input into structured cart items; JSON wrapped in markdown code blocks is stripped before parsing. Session state is kept in Redis with a 1-hour TTL. Confirmed orders are saved to PostgreSQL. A Stripe Checkout link is sent after confirmation. Loyalty points (1pt per $1, 100pt = $5 discount), promo codes with expiry and usage limits, and quick reorder from order history are all handled in-chat. A rate limiter caps messages at 30 per phone number per minute. Winston and Sentry cover logging and error tracking. An 86-test suite spans 8 suites across the core flows.
+
+## Outcome
+
+Full ordering flow with multi-language support (EN/TR), multi-location branch selection, cart management, promo codes, loyalty points, Stripe payments, and kitchen-to-customer push notifications. React admin dashboard covers order management, menu editing, stats, and charts.

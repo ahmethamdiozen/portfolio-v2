@@ -1,0 +1,26 @@
+---
+title: "Live Quiz Platform"
+description: "Real-time classroom quiz platform with Socket.io and AI-generated questions."
+date: "2024-12-01"
+tags: ["Node.js", "Express", "Socket.io", "PostgreSQL", "OpenAI", "JWT"]
+featured: false
+repo: "https://github.com/ahmethamdiozen/kahoot"
+demo: "https://kahoot-production.up.railway.app"
+cover: ""
+---
+
+## Overview
+
+A real-time quiz platform for classrooms. Teachers create and run quizzes; students join with a name and room code — no account required. Questions are broadcast live and scores update instantly as answers come in.
+
+## Problem
+
+Traditional classroom quizzes lack immediate feedback and require significant preparation time. Writing questions manually is slow, and there's no easy way to track results in real time.
+
+## Approach
+
+Socket.io manages the real-time connection between the server and all participants — questions are pushed to every connected client simultaneously, and answers flow back as they're submitted. Teachers authenticate via JWT and manage quizzes through a dashboard. The OpenAI API generates quiz questions from a topic string, reducing preparation time to seconds. Student access is intentionally frictionless: name and room code only.
+
+## Outcome
+
+Deployed on Railway. Supports automatic room code generation, live scoring, and leaderboard ranking. Developed as a university course project.

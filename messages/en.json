@@ -1,0 +1,30 @@
+{
+  "nav": {
+    "projects": "Projects",
+    "about": "About"
+  },
+  "home": {
+    "cta_projects": "View projects",
+    "cta_contact": "Get in touch",
+    "selected_projects": "Selected work",
+    "view_all": "All projects",
+    "about_heading": "About"
+  },
+  "projects": {
+    "heading": "Projects",
+    "filter_all": "All",
+    "view_repo": "Source",
+    "view_demo": "Demo",
+    "back": "Back to projects"
+  },
+  "about": {
+    "heading": "About",
+    "skills": "Skills",
+    "experience": "Experience"
+  },
+  "common": {
+    "not_found": "Page not found.",
+    "not_found_desc": "The page you're looking for doesn't exist.",
+    "go_home": "Go home"
+  }
+}

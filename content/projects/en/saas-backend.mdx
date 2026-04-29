@@ -1,0 +1,26 @@
+---
+title: "SaaS Backend Framework"
+description: "Production-ready FastAPI backend template with background jobs, JWT auth, distributed locking, and observability."
+date: "2025-02-01"
+tags: ["FastAPI", "Python", "PostgreSQL", "Redis", "RQ", "Alembic", "Pydantic"]
+featured: false
+repo: "https://github.com/ahmethamdiozen/saas-project-backend"
+demo: ""
+cover: ""
+---
+
+## Overview
+
+A production-ready SaaS backend template built with FastAPI. Covers the foundational concerns most SaaS products share: authentication, background job processing, database migrations, and observability — structured as domain-driven modules from the start.
+
+## Problem
+
+Every SaaS project starts by solving the same set of problems: auth, background jobs, schema migrations, and structured logging. Rebuilding this infrastructure from scratch on each project wastes time and introduces inconsistency.
+
+## Approach
+
+FastAPI serves the REST API with auto-generated Swagger and ReDoc documentation. Background jobs run through Redis Queue (RQ) with progress tracking, cancellation tokens, and automatic retries. Distributed locking at the worker level prevents duplicate job execution. JWT authentication uses an access + refresh token pattern with bcrypt password hashing. Alembic manages schema migrations with a versioned history. Structured logging and a global exception handler provide observability without additional tooling.
+
+## Outcome
+
+A reusable starting point organized into domain-driven modules (Auth, Users, Jobs, Subscriptions). Covered by unit and integration tests.
