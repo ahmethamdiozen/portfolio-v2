@@ -65,12 +65,12 @@ export const mdxComponents: MDXComponents = {
     />
   ),
   hr: ({ ...props }) => (
-    <hr className="my-8 border-zinc-200 dark:border-zinc-800" {...props} />
+    <hr className="my-8 border-zinc-200 dark:border-slate-700" {...props} />
   ),
   code: ({ className, ...props }) => (
     <code
       className={cn(
-        "rounded-sm bg-zinc-100 px-1.5 py-0.5 font-mono text-[0.875em] dark:bg-zinc-800",
+        "rounded-sm bg-zinc-100 px-1.5 py-0.5 font-mono text-[0.875em] dark:bg-slate-800",
         className
       )}
       {...props}
@@ -90,7 +90,7 @@ export const mdxComponents: MDXComponents = {
   th: ({ className, ...props }) => (
     <th
       className={cn(
-        "border-b border-zinc-200 px-3 py-2 text-left font-semibold dark:border-zinc-800",
+        "border-b border-zinc-200 px-3 py-2 text-left font-semibold dark:border-slate-700",
         className
       )}
       {...props}
@@ -99,7 +99,7 @@ export const mdxComponents: MDXComponents = {
   td: ({ className, ...props }) => (
     <td
       className={cn(
-        "border-b border-zinc-100 px-3 py-2 dark:border-zinc-900",
+        "border-b border-zinc-100 px-3 py-2 dark:border-slate-800",
         className
       )}
       {...props}

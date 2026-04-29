@@ -7,7 +7,7 @@ export default function AboutSnippet({ locale }: { locale: Locale }) {
   const t = useTranslations("home");
 
   return (
-    <section className="border-t border-zinc-100 py-24 dark:border-zinc-900">
+    <section className="border-t border-zinc-100 py-24 dark:border-slate-800">
       <div className="mx-auto max-w-wide px-6">
         <div className="max-w-xl">
           <h2 className="mb-6 font-mono text-xs font-medium uppercase tracking-widest text-zinc-400 dark:text-zinc-600">

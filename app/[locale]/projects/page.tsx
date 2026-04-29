@@ -27,7 +27,6 @@ export default function ProjectsPage({ params: { locale } }: Props) {
         </h1>
         <TagFilter
           projects={projects}
-          locale={locale}
           labelAll={t("filter_all")}
         />
       </div>

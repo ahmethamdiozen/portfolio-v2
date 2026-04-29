@@ -11,6 +11,7 @@
   .dark {
     --accent: #7ea898;
     --accent-hover: #96bab3;
+    --bg: #0f172a;
   }
 
   html {
@@ -26,7 +27,7 @@
   }
 
   :focus-visible {
-    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-white dark:ring-offset-[#0a0a0a];
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-white dark:ring-offset-[#0f172a];
   }
 }
 

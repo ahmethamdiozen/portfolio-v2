@@ -11,7 +11,7 @@ export default function Nav({ locale: _locale }: { locale: Locale }) {
   const t = useTranslations("nav");
 
   return (
-    <header className="sticky top-0 z-50 border-b border-zinc-100 bg-white/80 backdrop-blur-md dark:border-zinc-900 dark:bg-[#0a0a0a]/80">
+    <header className="sticky top-0 z-50 border-b border-zinc-100 bg-white/80 backdrop-blur-md dark:border-slate-800 dark:bg-[#0f172a]/80">
       <div className="mx-auto flex max-w-wide items-center justify-between px-6 py-4">
         <Link
           href="/"
@@ -32,11 +32,11 @@ export default function Nav({ locale: _locale }: { locale: Locale }) {
                   {t(key as NavKey)}
                 </Link>
               ))}
-              <span className="mx-1 h-4 w-px bg-zinc-200 dark:bg-zinc-800" aria-hidden />
+              <span className="mx-1 h-4 w-px bg-zinc-200 dark:bg-slate-700" aria-hidden />
             </li>
             <li className="flex items-center gap-2">
               <LocaleSwitcher />
-              <span className="h-4 w-px bg-zinc-200 dark:bg-zinc-800" aria-hidden />
+              <span className="h-4 w-px bg-zinc-200 dark:bg-slate-700" aria-hidden />
               <ThemeToggle />
             </li>
           </ul>

@@ -37,8 +37,8 @@ export const siteConfig: SiteConfig = {
   },
 
   bio: {
-    en: "Building backend systems and AI integrations that work in production.",
-    tr: "Üretimde çalışan backend sistemleri ve yapay zeka entegrasyonları geliştiriyorum.",
+    en: "Building backend systems and AI integrations",
+    tr: "Backend sistemleri ve yapay zeka entegrasyonları geliştiriyorum.",
   },
 
   about: {

@@ -2,17 +2,16 @@
 
 import { useState, useMemo } from "react";
 import { cn } from "@/lib/utils";
+import { Link } from "@/i18n/navigation";
+import { Badge } from "@/components/ui/badge";
 import type { ProjectMeta } from "@/lib/mdx";
-import type { Locale } from "@/i18n/routing";
-import ProjectCard from "./project-card";
 
 interface Props {
   projects: ProjectMeta[];
-  locale: Locale;
   labelAll: string;
 }
 
-export default function TagFilter({ projects, locale, labelAll }: Props) {
+export default function TagFilter({ projects, labelAll }: Props) {
   const [active, setActive] = useState<string | null>(null);
 
   const tags = useMemo(() => {
@@ -28,14 +27,14 @@ export default function TagFilter({ projects, locale, labelAll }: Props) {
   return (
     <div>
       {tags.length > 0 && (
-        <div className="mb-10 flex flex-wrap gap-2">
+        <div className="mb-12 flex flex-wrap gap-2">
           <button
             onClick={() => setActive(null)}
             className={cn(
               "rounded-sm border px-3 py-1 font-mono text-xs transition-colors",
               active === null
-                ? "border-[#0a0a0a] bg-[#0a0a0a] text-white dark:border-zinc-100 dark:bg-zinc-100 dark:text-[#0a0a0a]"
-                : "border-zinc-200 text-zinc-500 hover:border-zinc-400 dark:border-zinc-800 dark:text-zinc-400 dark:hover:border-zinc-600"
+                ? "border-[#0a0a0a] bg-[#0a0a0a] text-white dark:border-slate-100 dark:bg-slate-100 dark:text-[#0f172a]"
+                : "border-zinc-200 text-zinc-500 hover:border-zinc-400 dark:border-slate-700 dark:text-slate-400 dark:hover:border-slate-500"
             )}
           >
             {labelAll}
@@ -47,8 +46,8 @@ export default function TagFilter({ projects, locale, labelAll }: Props) {
               className={cn(
                 "rounded-sm border px-3 py-1 font-mono text-xs transition-colors",
                 active === tag
-                  ? "border-[#0a0a0a] bg-[#0a0a0a] text-white dark:border-zinc-100 dark:bg-zinc-100 dark:text-[#0a0a0a]"
-                  : "border-zinc-200 text-zinc-500 hover:border-zinc-400 dark:border-zinc-800 dark:text-zinc-400 dark:hover:border-zinc-600"
+                  ? "border-[#0a0a0a] bg-[#0a0a0a] text-white dark:border-slate-100 dark:bg-slate-100 dark:text-[#0f172a]"
+                  : "border-zinc-200 text-zinc-500 hover:border-zinc-400 dark:border-slate-700 dark:text-slate-400 dark:hover:border-slate-500"
               )}
             >
               {tag}
@@ -57,11 +56,30 @@ export default function TagFilter({ projects, locale, labelAll }: Props) {
         </div>
       )}
 
-      <div className="grid gap-px border border-zinc-100 bg-zinc-100 dark:border-zinc-900 dark:bg-zinc-900 sm:grid-cols-2 lg:grid-cols-3">
+      <ol className="divide-y divide-zinc-100 dark:divide-slate-800">
         {filtered.map((project) => (
-          <ProjectCard key={project.slug} project={project} locale={locale} />
+          <li key={project.slug}>
+            <Link
+              href={`/projects/${project.slug}`}
+              className="group flex flex-col gap-4 py-8 transition-colors sm:flex-row sm:items-start sm:justify-between"
+            >
+              <div className="flex-1 sm:pr-12">
+                <h2 className="mb-2 text-lg font-semibold tracking-tight text-[#0a0a0a] transition-colors group-hover:text-accent dark:text-slate-100 dark:group-hover:text-accent">
+                  {project.title}
+                </h2>
+                <p className="text-sm leading-relaxed text-zinc-500 dark:text-slate-400">
+                  {project.description}
+                </p>
+              </div>
+              <div className="flex shrink-0 flex-wrap items-start gap-1.5 sm:max-w-[220px] sm:justify-end">
+                {project.tags.map((tag) => (
+                  <Badge key={tag}>{tag}</Badge>
+                ))}
+              </div>
+            </Link>
+          </li>
         ))}
-      </div>
+      </ol>
     </div>
   );
 }

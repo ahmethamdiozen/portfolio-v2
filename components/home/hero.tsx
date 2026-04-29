@@ -12,12 +12,9 @@ export default function Hero({ locale }: { locale: Locale }) {
         <p className="mb-4 font-mono text-sm text-zinc-400 dark:text-zinc-500">
           {siteConfig.title[locale]}
         </p>
-        <h1 className="mb-6 max-w-2xl text-5xl font-semibold leading-[1.1] tracking-tight text-[#0a0a0a] dark:text-zinc-100 md:text-6xl">
+        <h1 className="mb-10 max-w-2xl text-5xl font-semibold leading-[1.1] tracking-tight text-[#0a0a0a] dark:text-zinc-100 md:text-6xl">
           {siteConfig.name}
         </h1>
-        <p className="mb-10 max-w-lg text-lg leading-relaxed text-zinc-500 dark:text-zinc-400">
-          {siteConfig.bio[locale]}
-        </p>
         <div className="flex flex-wrap items-center gap-3">
           <Link
             href="/projects"

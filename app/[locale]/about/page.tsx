@@ -50,7 +50,7 @@ export default function AboutPage({ params: { locale } }: Props) {
                       {group.items.map((item) => (
                         <span
                           key={item}
-                          className="rounded-sm bg-zinc-100 px-2 py-0.5 font-mono text-xs text-zinc-600 dark:bg-zinc-900 dark:text-zinc-400"
+                          className="rounded-sm bg-zinc-100 px-2 py-0.5 font-mono text-xs text-zinc-600 dark:bg-slate-800 dark:text-slate-400"
                         >
                           {item}
                         </span>
@@ -68,7 +68,7 @@ export default function AboutPage({ params: { locale } }: Props) {
               </h2>
               <ol className="space-y-8">
                 {siteConfig.experience.map((job, i) => (
-                  <li key={i} className="relative border-l border-zinc-200 pl-5 dark:border-zinc-800">
+                  <li key={i} className="relative border-l border-zinc-200 pl-5 dark:border-slate-700">
                     <p className="mb-0.5 font-medium text-[#0a0a0a] dark:text-zinc-100">
                       {job.role[locale]}
                     </p>

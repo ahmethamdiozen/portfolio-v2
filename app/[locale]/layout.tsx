@@ -62,7 +62,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       className={cn(inter.variable, jetbrainsMono.variable)}
       suppressHydrationWarning
     >
-      <body className="bg-white text-[#0a0a0a] antialiased dark:bg-[#0a0a0a] dark:text-zinc-100">
+      <body className="bg-white text-[#0a0a0a] antialiased dark:bg-[#0f172a] dark:text-slate-100">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

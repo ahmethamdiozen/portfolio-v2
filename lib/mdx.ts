@@ -9,6 +9,7 @@ export type ProjectMeta = {
   title: string;
   description: string;
   date: string;
+  order: number;
   tags: string[];
   featured: boolean;
   repo: string;
@@ -18,33 +19,13 @@ export type ProjectMeta = {
 
 const PROJECTS_DIR = path.join(process.cwd(), "content/projects");
 
-function readMdxDir<T>(
-  dir: string,
-  mapper: (slug: string, data: Record<string, unknown>) => T
-): T[] {
-  if (!fs.existsSync(dir)) return [];
-  return fs
-    .readdirSync(dir)
-    .filter((f) => f.endsWith(".mdx"))
-    .map((filename) => {
-      const slug = filename.replace(/\.mdx$/, "");
-      const source = fs.readFileSync(path.join(dir, filename), "utf-8");
-      const { data } = matter(source);
-      return mapper(slug, data);
-    })
-    .sort((a, b) => {
-      const aDate = (a as { date?: string }).date ?? "";
-      const bDate = (b as { date?: string }).date ?? "";
-      return new Date(bDate).getTime() - new Date(aDate).getTime();
-    });
-}
-
 function toProjectMeta(slug: string, data: Record<string, unknown>): ProjectMeta {
   return {
     slug,
     title: String(data.title ?? ""),
     description: String(data.description ?? ""),
     date: String(data.date ?? ""),
+    order: typeof data.order === "number" ? data.order : 999,
     tags: Array.isArray(data.tags) ? (data.tags as string[]) : [],
     featured: Boolean(data.featured),
     repo: String(data.repo ?? ""),
@@ -53,8 +34,23 @@ function toProjectMeta(slug: string, data: Record<string, unknown>): ProjectMeta
   };
 }
 
+function readProjectDir(locale: Locale): ProjectMeta[] {
+  const dir = path.join(PROJECTS_DIR, locale);
+  if (!fs.existsSync(dir)) return [];
+  return fs
+    .readdirSync(dir)
+    .filter((f) => f.endsWith(".mdx"))
+    .map((filename) => {
+      const slug = filename.replace(/\.mdx$/, "");
+      const source = fs.readFileSync(path.join(dir, filename), "utf-8");
+      const { data } = matter(source);
+      return toProjectMeta(slug, data);
+    })
+    .sort((a, b) => a.order - b.order);
+}
+
 export function getAllProjects(locale: Locale): ProjectMeta[] {
-  return readMdxDir<ProjectMeta>(path.join(PROJECTS_DIR, locale), toProjectMeta);
+  return readProjectDir(locale);
 }
 
 export function getFeaturedProjects(locale: Locale): ProjectMeta[] {

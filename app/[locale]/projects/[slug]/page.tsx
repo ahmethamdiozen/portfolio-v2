@@ -6,7 +6,6 @@ import rehypePrettyCode from "rehype-pretty-code";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { getProjectBySlug, getAllProjectSlugs } from "@/lib/mdx";
-import { formatDate } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { mdxComponents } from "@/components/mdx/mdx-components";
 import { routing, type Locale } from "@/i18n/routing";
@@ -48,9 +47,6 @@ export default async function ProjectPage({ params: { locale, slug } }: Props) {
         <BackLink />
 
         <header className="mb-16 max-w-2xl">
-          <p className="mb-3 font-mono text-xs text-zinc-400 dark:text-zinc-600">
-            {formatDate(meta.date, locale)}
-          </p>
           <h1 className="mb-4 text-3xl font-semibold leading-tight tracking-tight text-[#0a0a0a] dark:text-zinc-100 md:text-4xl">
             {meta.title}
           </h1>
@@ -66,7 +62,7 @@ export default async function ProjectPage({ params: { locale, slug } }: Props) {
         </header>
 
         {meta.cover && (
-          <div className="mb-16 aspect-video max-w-3xl overflow-hidden border border-zinc-100 dark:border-zinc-900">
+          <div className="mb-16 aspect-video max-w-3xl overflow-hidden border border-zinc-100 dark:border-slate-800">
             <img
               src={meta.cover}
               alt={meta.title}

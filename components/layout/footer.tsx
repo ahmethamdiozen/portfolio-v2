@@ -8,7 +8,7 @@ export default function Footer() {
   ].filter((s) => s.href);
 
   return (
-    <footer className="border-t border-zinc-100 dark:border-zinc-900">
+    <footer className="border-t border-zinc-100 dark:border-slate-800">
       <div className="mx-auto flex max-w-wide flex-col items-start justify-between gap-4 px-6 py-8 sm:flex-row sm:items-center">
         <p className="font-mono text-xs text-zinc-400 dark:text-zinc-600">
           &copy; {new Date().getFullYear()} {siteConfig.name}
