@@ -17,12 +17,6 @@ type SiteConfig = {
     category: Record<Locale, string>;
     items: string[];
   }>;
-  experience: Array<{
-    role: Record<Locale, string>;
-    company: string;
-    period: string;
-    description: Record<Locale, string>;
-  }>;
   nav: Array<{ key: string; href: string }>;
 };
 
@@ -81,27 +75,6 @@ export const siteConfig: SiteConfig = {
     {
       category: { en: "Infrastructure", tr: "Altyapı" },
       items: ["Docker", "Linux", "Git", "Prometheus", "Grafana", "Coolify"],
-    },
-  ],
-
-  experience: [
-    {
-      role: { en: "Junior Backend / AI Engineer", tr: "Junior Backend / Yapay Zeka Mühendisi" },
-      company: "Crowtec Software",
-      period: "09/2024 — 02/2025",
-      description: {
-        en: "Developed and maintained backend services for real-time video streaming and communication on Linux. Integrated Python services with optimized ML inference pipelines (ONNX), exposed internal functionality via REST APIs, and took full ownership of reliability, performance, and production stability.",
-        tr: "Linux üzerinde gerçek zamanlı video akışı ve iletişim için backend servisleri geliştirdim ve sürdürdüm. Python servislerini optimize edilmiş ML çıkarım yapılandırmalarıyla (ONNX) entegre ettim, REST API'lar aracılığıyla iç işlevselliği dışa açtım; güvenilirlik, performans ve üretim stabilitesinin tüm sorumluluğunu üstlendim.",
-      },
-    },
-    {
-      role: { en: "Software Engineer Intern", tr: "Yazılım Mühendisi Stajyeri" },
-      company: "Yalin Software",
-      period: "06/2024 — 08/2024",
-      description: {
-        en: "Worked on the backend of a computer vision application, writing Python services and REST endpoints consumed by frontend clients. Collaborated on a production codebase using PyTorch and OpenCV, contributing to data processing pipelines and API layer improvements.",
-        tr: "Bir bilgisayarla görme uygulamasının backend tarafında çalıştım; frontend istemcilerin tükettiği Python servisleri ve REST endpoint'leri yazdım. PyTorch ve OpenCV kullanan üretim ortamındaki bir kod tabanında, veri işleme pipeline'larına ve API katmanı geliştirmelerine katkıda bulundum.",
-      },
     },
   ],
 

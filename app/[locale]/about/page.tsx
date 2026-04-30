@@ -17,7 +17,7 @@ export default function AboutPage({ params: { locale } }: Props) {
   return (
     <div className="py-20 md:py-24">
       <div className="mx-auto max-w-wide px-6">
-        <div className="grid gap-20 lg:grid-cols-[1fr_340px]">
+        <div className="grid gap-20 lg:grid-cols-[1fr_300px]">
 
           {/* Left — bio */}
           <div>
@@ -33,9 +33,8 @@ export default function AboutPage({ params: { locale } }: Props) {
             </div>
           </div>
 
-          {/* Right — skills + experience */}
-          <aside className="space-y-16">
-            {/* Skills */}
+          {/* Right — skills */}
+          <aside>
             <section>
               <h2 className="mb-6 font-mono text-xs font-medium uppercase tracking-widest text-zinc-400 dark:text-zinc-600">
                 {t("skills")}
@@ -59,31 +58,6 @@ export default function AboutPage({ params: { locale } }: Props) {
                   </div>
                 ))}
               </div>
-            </section>
-
-            {/* Experience */}
-            <section>
-              <h2 className="mb-6 font-mono text-xs font-medium uppercase tracking-widest text-zinc-400 dark:text-zinc-600">
-                {t("experience")}
-              </h2>
-              <ol className="space-y-8">
-                {siteConfig.experience.map((job, i) => (
-                  <li key={i} className="relative border-l border-zinc-200 pl-5 dark:border-slate-700">
-                    <p className="mb-0.5 font-medium text-[#0a0a0a] dark:text-zinc-100">
-                      {job.role[locale]}
-                    </p>
-                    <p className="mb-1 text-sm text-zinc-500 dark:text-zinc-400">
-                      {job.company}
-                    </p>
-                    <p className="mb-3 font-mono text-xs text-zinc-400 dark:text-zinc-600">
-                      {job.period}
-                    </p>
-                    <p className="text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
-                      {job.description[locale]}
-                    </p>
-                  </li>
-                ))}
-              </ol>
             </section>
           </aside>
         </div>
