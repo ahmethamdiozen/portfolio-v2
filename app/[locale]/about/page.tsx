@@ -15,9 +15,9 @@ export default function AboutPage({ params: { locale } }: Props) {
   const paragraphs = siteConfig.about[locale].split("\n\n");
 
   return (
-    <div className="py-20 md:py-24">
+    <div className="py-14 md:py-24">
       <div className="mx-auto max-w-wide px-6">
-        <div className="grid gap-20 lg:grid-cols-[1fr_300px]">
+        <div className="grid gap-12 lg:grid-cols-[1fr_300px] lg:gap-20">
 
           {/* Left — bio */}
           <div>

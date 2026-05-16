@@ -13,9 +13,9 @@ export default function SelectedProjects({ projects, locale: _locale }: Props) {
   const t = useTranslations("home");
 
   return (
-    <section className="border-t border-zinc-100 py-24 dark:border-slate-800">
+    <section className="border-t border-zinc-100 py-16 dark:border-slate-800 md:py-24">
       <div className="mx-auto max-w-wide px-6">
-        <div className="mb-10 flex items-baseline justify-between">
+        <div className="mb-8 flex items-baseline justify-between md:mb-10">
           <h2 className="font-mono text-xs font-medium uppercase tracking-widest text-zinc-400 dark:text-zinc-600">
             {t("selected_projects")}
           </h2>

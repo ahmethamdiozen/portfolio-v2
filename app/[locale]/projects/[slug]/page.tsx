@@ -42,11 +42,11 @@ export default async function ProjectPage({ params: { locale, slug } }: Props) {
   const { meta, content } = project;
 
   return (
-    <article className="py-20 md:py-24">
+    <article className="py-14 md:py-24">
       <div className="mx-auto max-w-wide px-6">
         <BackLink />
 
-        <header className="mb-16 max-w-2xl">
+        <header className="mb-10 max-w-2xl md:mb-16">
           <h1 className="mb-4 text-3xl font-semibold leading-tight tracking-tight text-[#0a0a0a] dark:text-zinc-100 md:text-4xl">
             {meta.title}
           </h1>

@@ -20,9 +20,9 @@ export default function ProjectsPage({ params: { locale } }: Props) {
   const projects = getAllProjects(locale);
 
   return (
-    <section className="py-20 md:py-24">
+    <section className="py-14 md:py-24">
       <div className="mx-auto max-w-wide px-6">
-        <h1 className="mb-16 text-3xl font-semibold tracking-tight text-[#0a0a0a] dark:text-zinc-100 md:text-4xl">
+        <h1 className="mb-10 text-3xl font-semibold tracking-tight text-[#0a0a0a] dark:text-zinc-100 md:mb-16 md:text-4xl">
           {t("heading")}
         </h1>
         <TagFilter

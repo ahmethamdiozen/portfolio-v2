@@ -7,12 +7,12 @@ export default function Hero({ locale }: { locale: Locale }) {
   const t = useTranslations("home");
 
   return (
-    <section className="py-24 md:py-32">
+    <section className="py-16 md:py-28">
       <div className="mx-auto max-w-wide px-6">
-        <p className="mb-4 font-mono text-sm text-zinc-400 dark:text-zinc-500">
+        <p className="mb-3 font-mono text-sm text-zinc-400 dark:text-zinc-500">
           {siteConfig.title[locale]}
         </p>
-        <h1 className="mb-10 max-w-2xl text-5xl font-semibold leading-[1.1] tracking-tight text-[#0a0a0a] dark:text-zinc-100 md:text-6xl">
+        <h1 className="mb-8 max-w-2xl text-4xl font-semibold leading-[1.1] tracking-tight text-[#0a0a0a] dark:text-zinc-100 sm:text-5xl md:text-6xl">
           {siteConfig.name}
         </h1>
         <div className="flex flex-wrap items-center gap-3">
